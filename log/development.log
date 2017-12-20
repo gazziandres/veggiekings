@@ -1,0 +1,1101 @@
+Started GET "/" for 127.0.0.1 at 2017-12-20 01:14:16 -0300
+  [1m[35m (29.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.4) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.4) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (11.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3465514816342925220)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlatoCreados (20171220000223)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1955.7ms)[0m  [1m[35mCREATE TABLE "plato_creados" ("id" bigserial primary key, "ingrediente_id" bigint, "plato_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_92661e68df"
+FOREIGN KEY ("ingrediente_id")
+  REFERENCES "ingredientes" ("id")
+, CONSTRAINT "fk_rails_8528befcb1"
+FOREIGN KEY ("plato_id")
+  REFERENCES "platos" ("id")
+)[0m
+  [1m[35m (131.8ms)[0m  [1m[35mCREATE  INDEX  "index_plato_creados_on_ingrediente_id" ON "plato_creados"  ("ingrediente_id")[0m
+  [1m[35m (40.2ms)[0m  [1m[35mCREATE  INDEX  "index_plato_creados_on_plato_id" ON "plato_creados"  ("plato_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171220000223"]]
+  [1m[35m (145.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (40.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3465514816342925220)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mPlato Load (511.3ms)[0m  [1m[34mSELECT "platos".* FROM "platos"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (111.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 1]]
+  [1m[36mLineItem Load (37.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 1]]
+  [1m[36mLineItem Load (0.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 2]]
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 2]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 3]]
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 3]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 4]]
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 4]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 5]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 5]]
+  [1m[36mLineItem Load (0.8ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 6]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 7]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 7]]
+  [1m[36mLineItem Load (0.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 8]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 8]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 9]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 9]]
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 10]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 10]]
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 11]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 11]]
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 12]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 12]]
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 13]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 13]]
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 14]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 14]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 24]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 24]]
+  [1m[35mSQL (2.8ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 1]]
+  [1m[35m (21.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 2]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 25]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 25]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 33]]
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 33]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 2]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 3]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 34]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 34]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 26]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 26]]
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 3]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 4]]
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 4]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 5]]
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 5]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 6]]
+  [1m[35mSQL (1.9ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 6]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 7]]
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 7]]
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 8]]
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 8]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 9]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 9]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 10]]
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 10]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 11]]
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 11]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."plato_id" = $1[0m  [["plato_id", 12]]
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "platos" WHERE "platos"."id" = $1[0m  [["id", 12]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (30.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mSQL (21.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (89.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35mSQL (1.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[35mSQL (1.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35mSQL (1.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[35mSQL (3.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  [1m[35m (13.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 6]]
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 10]]
+  [1m[35m (12.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 11]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 12]]
+  [1m[35m (117.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 14]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 13]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists (51.8ms)[0m  [1m[34mSELECT  1 AS one FROM "admin_users" WHERE "admin_users"."email" = $1 LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (1169.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "veggiekings_development"[0m
+  [1m[35m (321.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "veggiekings_test"[0m
+  [1m[35m (202.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (120.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3465514816342925220)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20171126035401)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (95.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (50.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (40.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171126035401"]]
+  [1m[35m (145.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlatos (20171126052610)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (198.2ms)[0m  [1m[35mCREATE TABLE "platos" ("id" bigserial primary key, "name" character varying, "photo" character varying, "description" character varying, "price" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171126052610"]]
+  [1m[35m (15.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20171126161716)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (56.7ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "user_id" bigint, "plato_id" bigint, "payed" boolean DEFAULT 'f', "price" integer, "quantity" integer DEFAULT 0, "latitude" float, "longitude" float, "checked_out_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_fa10df15a8"
+FOREIGN KEY ("plato_id")
+  REFERENCES "platos" ("id")
+)[0m
+  [1m[35m (38.6ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")[0m
+  [1m[35m (40.3ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_plato_id" ON "orders"  ("plato_id")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171126161716"]]
+  [1m[35m (12.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBillings (20171127203140)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (92.4ms)[0m  [1m[35mCREATE TABLE "billings" ("id" bigserial primary key, "code" character varying, "payment_method" character varying, "amount" decimal(10,1), "currency" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d31ab0cf92"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE  INDEX  "index_billings_on_user_id" ON "billings"  ("user_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171127203140"]]
+  [1m[35m (12.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddBillingToOrder (20171128021249)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "orders" ADD "billing_id" bigint[0m
+  [1m[35m (45.0ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_billing_id" ON "orders"  ("billing_id")[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_0eb0e9e545"
+FOREIGN KEY ("billing_id")
+  REFERENCES "billings" ("id")
+[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171128021249"]]
+  [1m[35m (19.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeviseCreateAdminUsers (20171201050135)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (91.8ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (50.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admin_users_on_email" ON "admin_users"  ("email")[0m
+  [1m[35m (41.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admin_users_on_reset_password_token" ON "admin_users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171201050135"]]
+  [1m[35m (21.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveAdminComments (20171201050144)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (94.7ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" bigserial primary key, "namespace" character varying, "body" text, "resource_type" character varying, "resource_id" bigint, "author_type" character varying, "author_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments"  ("resource_type", "resource_id")[0m
+  [1m[35m (42.3ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments"  ("author_type", "author_id")[0m
+  [1m[35m (39.3ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_namespace" ON "active_admin_comments"  ("namespace")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171201050144"]]
+  [1m[35m (18.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateIngredientes (20171202201220)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (96.4ms)[0m  [1m[35mCREATE TABLE "ingredientes" ("id" bigserial primary key, "id_tipo" integer, "nombre" character varying, "foto" character varying, "precio" integer, "grasa" integer, "grasa_saturada" integer, "grasa_trans" integer, "colesterol" integer, "sodio" integer, "carbohidrato" integer, "fibra_dietetica" integer, "azucar" integer, "proteina" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171202201220"]]
+  [1m[35m (18.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLineItems (20171203053641)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (98.3ms)[0m  [1m[35mCREATE TABLE "line_items" ("id" bigserial primary key, "order_id" integer, "plato_id" integer, "price" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (51.5ms)[0m  [1m[35mCREATE  INDEX  "index_line_items_on_order_id" ON "line_items"  ("order_id")[0m
+  [1m[35m (41.2ms)[0m  [1m[35mCREATE  INDEX  "index_line_items_on_plato_id" ON "line_items"  ("plato_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171203053641"]]
+  [1m[35m (16.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGeoPositionToUser (20171204040457)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "latitude" float[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "longitude" float[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "address" character varying[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171204040457"]]
+  [1m[35m (9.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAddressToOrder (20171205162138)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.2ms)[0m  [1m[35mALTER TABLE "orders" ADD "address" character varying[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171205162138"]]
+  [1m[35m (16.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddOmniauthToUser (20171207191740)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "provider" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "uid" character varying[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171207191740"]]
+  [1m[35m (13.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToUsers (20171208001456)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "name" character varying[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171208001456"]]
+  [1m[35m (12.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPhoneToUser (20171212233740)
+  [1m[35m (3.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "phone" integer[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171212233740"]]
+  [1m[35m (11.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlatoCreados (20171220000223)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (58.0ms)[0m  [1m[35mCREATE TABLE "plato_creados" ("id" bigserial primary key, "ingrediente_id" bigint, "plato_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_92661e68df"
+FOREIGN KEY ("ingrediente_id")
+  REFERENCES "ingredientes" ("id")
+, CONSTRAINT "fk_rails_8528befcb1"
+FOREIGN KEY ("plato_id")
+  REFERENCES "platos" ("id")
+)[0m
+  [1m[35m (62.3ms)[0m  [1m[35mCREATE  INDEX  "index_plato_creados_on_ingrediente_id" ON "plato_creados"  ("ingrediente_id")[0m
+  [1m[35m (40.5ms)[0m  [1m[35mCREATE  INDEX  "index_plato_creados_on_plato_id" ON "plato_creados"  ("plato_id")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171220000223"]]
+  [1m[35m (13.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-12-20 04:17:03.409891"], ["updated_at", "2017-12-20 04:17:03.409891"]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3465514816342925220)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mPlato Load (1.4ms)[0m  [1m[34mSELECT "platos".* FROM "platos"[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "admin_users" WHERE "admin_users"."email" = $1 LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "admin_users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@example.com"], ["encrypted_password", "$2a$11$fC2ophFA4NyiUai8YgeZK.RFuJeA.KGAj604GYn.dIcFkBVGwX.Ry"], ["created_at", "2017-12-20 04:18:01.228702"], ["updated_at", "2017-12-20 04:18:01.228702"]]
+  [1m[35m (45.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario0@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario0@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario0@gmail.com"], ["encrypted_password", "$2a$11$ud64M6JD6gP97puqZdMYeOcHQX4qUOKvzk6L.JjiWUQHja7Twy.5e"], ["created_at", "2017-12-20 04:18:01.582000"], ["updated_at", "2017-12-20 04:18:01.582000"]]
+  [1m[35m (58.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario1@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario1@gmail.com"], ["encrypted_password", "$2a$11$iA2/OJcdzcWP/LeiTq9cEOU1uIph9SCIf2.hTMAVax9ATt5JvtPHq"], ["created_at", "2017-12-20 04:18:01.888238"], ["updated_at", "2017-12-20 04:18:01.888238"]]
+  [1m[35m (43.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario2@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario2@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario2@gmail.com"], ["encrypted_password", "$2a$11$EGohsoYbLuLMq2vOnEDRL.BiqEEJaHFjcX8uZn4Yw9THA/hHe.Azq"], ["created_at", "2017-12-20 04:18:02.177517"], ["updated_at", "2017-12-20 04:18:02.177517"]]
+  [1m[35m (31.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario3@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario3@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario3@gmail.com"], ["encrypted_password", "$2a$11$6aWdO8dJ7a4/dwMZHghYReXHbj5KqlNBKYvZQjTaf6v5xARbwChji"], ["created_at", "2017-12-20 04:18:02.453949"], ["updated_at", "2017-12-20 04:18:02.453949"]]
+  [1m[35m (32.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario4@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario4@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario4@gmail.com"], ["encrypted_password", "$2a$11$ozF6.YLjsRfQlHeHhlnx.e/L1H35pDjuIDCOiqdFAEA9pPTTiCZ36"], ["created_at", "2017-12-20 04:18:02.726545"], ["updated_at", "2017-12-20 04:18:02.726545"]]
+  [1m[35m (38.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario5@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario5@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario5@gmail.com"], ["encrypted_password", "$2a$11$cjeLoKSellMWHbDe9lEUVuQi.w6wvNpP9qPWVDpFISum6grvYaZg."], ["created_at", "2017-12-20 04:18:03.011296"], ["updated_at", "2017-12-20 04:18:03.011296"]]
+  [1m[35m (30.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario6@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario6@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario6@gmail.com"], ["encrypted_password", "$2a$11$dyiu4bLv45QG7tdUDnAwWumD3XuL7wC7MmtLJhjYHBowIKFe/B84."], ["created_at", "2017-12-20 04:18:03.285900"], ["updated_at", "2017-12-20 04:18:03.285900"]]
+  [1m[35m (23.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario7@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario7@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario7@gmail.com"], ["encrypted_password", "$2a$11$hT25BzA9bZaXWzkg98EAkuAuJ.jtW7SC4AM1U3wdUV8jdDscdepQO"], ["created_at", "2017-12-20 04:18:03.553612"], ["updated_at", "2017-12-20 04:18:03.553612"]]
+  [1m[35m (155.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario8@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario8@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario8@gmail.com"], ["encrypted_password", "$2a$11$7ucEs3L30kiaJ4V3Okp5g.WhcA0E/bM7F26F9Jv9WdgEDbgimtQR6"], ["created_at", "2017-12-20 04:18:04.013053"], ["updated_at", "2017-12-20 04:18:04.013053"]]
+  [1m[35m (39.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario9@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario9@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario9@gmail.com"], ["encrypted_password", "$2a$11$BdpPzpyC0jBkHJVOoS52JuMsOf4pI.NtZAYjsHIM0NoixTkR/4T4O"], ["created_at", "2017-12-20 04:18:04.350498"], ["updated_at", "2017-12-20 04:18:04.350498"]]
+  [1m[35m (47.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario10@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario10@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario10@gmail.com"], ["encrypted_password", "$2a$11$T87C.rbBif7AN/7BWg/1juKqwcJdMJtCFEaZxR9YJz7BUGKxrlN8K"], ["created_at", "2017-12-20 04:18:04.689489"], ["updated_at", "2017-12-20 04:18:04.689489"]]
+  [1m[35m (52.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario11@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "usuario11@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "usuario11@gmail.com"], ["encrypted_password", "$2a$11$Nu5xnjOHIl7vLsid5q5Pcug4edZ9pY83K0KsyKb87cpmq.aIPaFGa"], ["created_at", "2017-12-20 04:18:05.033715"], ["updated_at", "2017-12-20 04:18:05.033715"]]
+  [1m[35m (52.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tiramisù"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Dashi"], ["price", 34], ["created_at", "2017-12-20 04:18:05.114805"], ["updated_at", "2017-12-20 04:18:05.114805"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Vegetable Soup"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Snowpea sprouts"], ["price", 11], ["created_at", "2017-12-20 04:18:05.124955"], ["updated_at", "2017-12-20 04:18:05.124955"]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Caprese Salad"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Lemon"], ["price", 19], ["created_at", "2017-12-20 04:18:05.136037"], ["updated_at", "2017-12-20 04:18:05.136037"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Meatballs with sauce"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Omega Spread"], ["price", 54], ["created_at", "2017-12-20 04:18:05.146963"], ["updated_at", "2017-12-20 04:18:05.146963"]]
+  [1m[35m (6.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Vegetable Soup"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Chestnut"], ["price", 11], ["created_at", "2017-12-20 04:18:05.158330"], ["updated_at", "2017-12-20 04:18:05.158330"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Chicken wings"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Agar"], ["price", 73], ["created_at", "2017-12-20 04:18:05.169575"], ["updated_at", "2017-12-20 04:18:05.169575"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Vegetable Soup"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Blue Swimmer Crab"], ["price", 53], ["created_at", "2017-12-20 04:18:05.180559"], ["updated_at", "2017-12-20 04:18:05.180559"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Risotto with seafood"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Celery Seed"], ["price", 25], ["created_at", "2017-12-20 04:18:05.191624"], ["updated_at", "2017-12-20 04:18:05.191624"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Katsu Curry"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Dandelion"], ["price", 27], ["created_at", "2017-12-20 04:18:05.202793"], ["updated_at", "2017-12-20 04:18:05.202793"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Pasta Carbonara"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Nashi Pear"], ["price", 32], ["created_at", "2017-12-20 04:18:05.214172"], ["updated_at", "2017-12-20 04:18:05.214172"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Salmon nigiri"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Sardines"], ["price", 14], ["created_at", "2017-12-20 04:18:05.225449"], ["updated_at", "2017-12-20 04:18:05.225449"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "platos" ("name", "photo", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Pork sausage roll"], ["photo", "https://www.farmboy.ca/wp-content/uploads/2014/12/garden_salad1.jpg"], ["description", "Quark Quinc"], ["price", 35], ["created_at", "2017-12-20 04:18:05.236280"], ["updated_at", "2017-12-20 04:18:05.236280"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "ingredientes" ("id_tipo", "nombre", "foto", "precio", "grasa", "grasa_saturada", "grasa_trans", "colesterol", "sodio", "carbohidrato", "fibra_dietetica", "azucar", "proteina", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["id_tipo", 6], ["nombre", "Queso Aida"], ["foto", "http://lorempixel.com/g/50/60"], ["precio", 39], ["grasa", 21], ["grasa_saturada", 21], ["grasa_trans", 19], ["colesterol", 5], ["sodio", 12], ["carbohidrato", 5], ["fibra_dietetica", 12], ["azucar", 0], ["proteina", 10], ["created_at", "2017-12-20 04:18:05.310476"], ["updated_at", "2017-12-20 04:18:05.310476"]]
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.7ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", -33.4082512], ["longitude", -70.5654605], ["created_at", "2017-12-20 04:18:06.133676"], ["updated_at", "2017-12-20 04:18:06.133676"], ["address", "Av. Apoquindo 6282, Las Condes"]]
+  [1m[35m (16.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.6ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 43.106456], ["longitude", -76.21770459999999], ["created_at", "2017-12-20 04:18:08.123004"], ["updated_at", "2017-12-20 04:18:08.123004"], ["address", "Liverpool, NY 13090"]]
+  [1m[35m (39.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.4ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 40.5786156], ["longitude", -111.8278239], ["created_at", "2017-12-20 04:18:09.823031"], ["updated_at", "2017-12-20 04:18:09.823031"], ["address", "8248 Buttonwood Drive"]]
+  [1m[35m (17.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.8ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 38.9695545], ["longitude", -77.3860976], ["created_at", "2017-12-20 04:18:11.934580"], ["updated_at", "2017-12-20 04:18:11.934580"], ["address", "Herndon, VA 20170"]]
+  [1m[35m (39.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.7ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 27.484738], ["longitude", -81.440536], ["created_at", "2017-12-20 04:18:14.252573"], ["updated_at", "2017-12-20 04:18:14.252573"], ["address", "953 Lake View Lane"]]
+  [1m[35m (10.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.8ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 40.3014581], ["longitude", -79.5389289], ["created_at", "2017-12-20 04:18:16.049696"], ["updated_at", "2017-12-20 04:18:16.049696"], ["address", "Greensburg, PA 15601"]]
+  [1m[35m (24.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.7ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 36.1627828], ["longitude", -91.24478549999999], ["created_at", "2017-12-20 04:18:18.066312"], ["updated_at", "2017-12-20 04:18:18.066312"], ["address", "8489 Smith Store Street"]]
+  [1m[35m (19.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.7ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 35.9798734], ["longitude", -78.50972279999999], ["created_at", "2017-12-20 04:18:19.848226"], ["updated_at", "2017-12-20 04:18:19.848226"], ["address", "Wake Forest, NC 27587"]]
+  [1m[35m (15.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.7ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 40.136398], ["longitude", -74.8800167], ["created_at", "2017-12-20 04:18:21.587426"], ["updated_at", "2017-12-20 04:18:21.587426"], ["address", "60 Pumpkin Hill Dr."]]
+  [1m[35m (9.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.5ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 40.6764003], ["longitude", -73.8124984], ["created_at", "2017-12-20 04:18:24.081159"], ["updated_at", "2017-12-20 04:18:24.081159"], ["address", "South Ozone Park, NY 11420"]]
+  [1m[35m (771.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.8ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 35.7669249], ["longitude", -78.8679933], ["created_at", "2017-12-20 04:18:26.437579"], ["updated_at", "2017-12-20 04:18:26.437579"], ["address", "923 Wakehurst L"]]
+  [1m[35m (26.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.6ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 29.9219677], ["longitude", -90.1073935], ["created_at", "2017-12-20 04:18:29.226894"], ["updated_at", "2017-12-20 04:18:29.226894"], ["address", "New Orleans, LA 70115"]]
+  [1m[35m (15.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (0.5ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 26.1092615], ["longitude", -80.38939649999999], ["created_at", "2017-12-20 04:18:31.123754"], ["updated_at", "2017-12-20 04:18:31.123754"], ["address", "995 Lakewood Court"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlato Load (1.0ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" ORDER BY "platos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "latitude", "longitude", "created_at", "updated_at", "address") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["plato_id", 1], ["latitude", 34.1616368], ["longitude", -117.6552185], ["created_at", "2017-12-20 04:18:33.218310"], ["updated_at", "2017-12-20 04:18:33.218310"], ["address", "Upland, CA 91784"]]
+  [1m[35m (12.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2017-12-20 01:19:01 -0300
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlatosController#landing as HTML
+  Rendering platos/landing.html.erb within layouts/application
+  Rendered platos/landing.html.erb within layouts/application (4.1ms)
+Completed 401 Unauthorized in 12750ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery/dist/jquery' with type 'application/javascript'
+Checked in these paths: 
+  /home/usuario/CursoF-S/proyecto_final/pfinal/app/assets/config
+  /home/usuario/CursoF-S/proyecto_final/pfinal/app/assets/images
+  /home/usuario/CursoF-S/proyecto_final/pfinal/app/assets/javascripts
+  /home/usuario/CursoF-S/proyecto_final/pfinal/app/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/font-awesome-rails-4.7.0.2/app/assets/fonts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/font-awesome-rails-4.7.0.2/app/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/gmaps4rails-2.1.2/vendor/assets/javascripts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/assets/images
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/assets/javascripts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/vendor/assets/javascripts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/vendor/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/formtastic-3.1.5/app/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/actioncable-5.1.4/lib/assets/compiled
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/actionview-5.1.4/lib/assets/compiled
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /home/usuario/CursoF-S/proyecto_final/pfinal/node_modules
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/font-awesome-sass-4.7.0/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/font-awesome-sass-4.7.0/assets/fonts):
+    3:   <head>
+    4:     <title>Veggiekings</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    7:     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    8:     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    9: 
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__3300073074356379475_39578280'
+Started GET "/" for 127.0.0.1 at 2017-12-20 01:19:15 -0300
+Processing by PlatosController#landing as HTML
+  Rendering platos/landing.html.erb within layouts/application
+  Rendered platos/landing.html.erb within layouts/application (1.6ms)
+Completed 401 Unauthorized in 229ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery/dist/jquery' with type 'application/javascript'
+Checked in these paths: 
+  /home/usuario/CursoF-S/proyecto_final/pfinal/app/assets/config
+  /home/usuario/CursoF-S/proyecto_final/pfinal/app/assets/images
+  /home/usuario/CursoF-S/proyecto_final/pfinal/app/assets/javascripts
+  /home/usuario/CursoF-S/proyecto_final/pfinal/app/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/font-awesome-rails-4.7.0.2/app/assets/fonts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/font-awesome-rails-4.7.0.2/app/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/gmaps4rails-2.1.2/vendor/assets/javascripts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/assets/images
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/assets/javascripts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/vendor/assets/javascripts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/vendor/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/formtastic-3.1.5/app/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/actioncable-5.1.4/lib/assets/compiled
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/actionview-5.1.4/lib/assets/compiled
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /home/usuario/CursoF-S/proyecto_final/pfinal/node_modules
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/font-awesome-sass-4.7.0/assets/stylesheets
+  /home/usuario/.rvm/gems/ruby-2.4.0/gems/font-awesome-sass-4.7.0/assets/fonts):
+    3:   <head>
+    4:     <title>Veggiekings</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    7:     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    8:     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    9: 
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__3300073074356379475_69890906126880'
+Started GET "/" for 127.0.0.1 at 2017-12-20 01:21:25 -0300
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlatosController#landing as HTML
+  Rendering platos/landing.html.erb within layouts/application
+  Rendered platos/landing.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_navbar.html.erb (9.1ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 10898ms (Views: 10879.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/platos" for 127.0.0.1 at 2017-12-20 01:21:58 -0300
+Processing by PlatosController#index as HTML
+  Rendering platos/index.html.erb within layouts/application
+  [1m[36mPlato Load (1.8ms)[0m  [1m[34mSELECT "platos".* FROM "platos"[0m
+  Rendered platos/index.html.erb within layouts/application (41.8ms)
+  Rendered layouts/_navbar.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 533ms (Views: 441.9ms | ActiveRecord: 10.3ms)
+
+
+Started POST "/platos/1/orders" for 127.0.0.1 at 2017-12-20 01:22:16 -0300
+Processing by OrdersController#create as HTML
+  Parameters: {"authenticity_token"=>"YZ3rPgvYB2qx2Kdfb3fYuEUYs/aP29XQGQtnUJ4LxjL62ky0q6d26nDdxNtgFxhjHw30x9/+ZH1YdoCLX4V51A==", "plato_id"=>"1"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-12-20 01:22:16 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (95.7ms)
+  Rendered layouts/_navbar.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 652ms (Views: 574.7ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-12-20 01:22:27 -0300
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-12-20 01:22:28 -0300
+Started GET "/users/auth/facebook/callback?code=AQD6nyHQST7j6y0fHLVbYT-WrJQthaOFrdD6ILVmY_wi0i3Rv9WFwH-m301x07gxlhJJgUAKXvkg5yceXUDjYBVhYJ2nR26yAvorCc86r-XPpikp4kYfsRs562ZkT1U2lEcpZlB7Yle6vrwxg7k_smE_X9vlu-ncE7EgFGHbHaRbbYrY9qH6m88l2BN1tmK3zcuTtDd8cjrybFx8H1ykGKSwTKrRP3cNEmpxdG6w0b21xRpQOhr6uf28x3t211a_BMvFXMP2uW9aGQNHutG5qBoa0_My-zY6e6r8172OYAmxtVdFTOG3PavcyqKaKGIkSMY&state=03508145864e3e8ae1c58f2fc9f3ecb57df266b0931fd9a2" for 127.0.0.1 at 2017-12-20 01:22:28 -0300
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQD6nyHQST7j6y0fHLVbYT-WrJQthaOFrdD6ILVmY_wi0i3Rv9WFwH-m301x07gxlhJJgUAKXvkg5yceXUDjYBVhYJ2nR26yAvorCc86r-XPpikp4kYfsRs562ZkT1U2lEcpZlB7Yle6vrwxg7k_smE_X9vlu-ncE7EgFGHbHaRbbYrY9qH6m88l2BN1tmK3zcuTtDd8cjrybFx8H1ykGKSwTKrRP3cNEmpxdG6w0b21xRpQOhr6uf28x3t211a_BMvFXMP2uW9aGQNHutG5qBoa0_My-zY6e6r8172OYAmxtVdFTOG3PavcyqKaKGIkSMY", "state"=>"03508145864e3e8ae1c58f2fc9f3ecb57df266b0931fd9a2"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "facebook"], ["uid", "10154952111276990"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gazzi_88@hotmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gazzi_88@hotmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "provider", "uid", "name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "gazzi_88@hotmail.com"], ["encrypted_password", "$2a$11$JeEnrEbY6evMO43P0sMqzOLHp57bMc/DnDBFFwpc6.gLawtGUUhpW"], ["created_at", "2017-12-20 04:22:30.848302"], ["updated_at", "2017-12-20 04:22:30.848302"], ["provider", "facebook"], ["uid", "10154952111276990"], ["name", "Gazzi Andres Jacob Nuñez"]]
+  [1m[35m (12.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-12-20 04:22:30.865953"], ["last_sign_in_at", "2017-12-20 04:22:30.865953"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2017-12-20 04:22:30.867796"], ["id", 13]]
+  [1m[35m (12.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 387ms (ActiveRecord: 30.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-20 01:22:30 -0300
+Processing by PlatosController#landing as HTML
+  Rendering platos/landing.html.erb within layouts/application
+  Rendered platos/landing.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (5.6ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 342ms (Views: 338.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-12-20 01:22:37 -0300
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."payed" = $1[0m  [["payed", "f"]]
+  Rendering orders/index.html.erb within layouts/application
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."payed" = $1[0m  [["payed", "f"]]
+  Rendered orders/index.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_navbar.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 1040ms (Views: 1002.4ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/platos" for 127.0.0.1 at 2017-12-20 01:22:44 -0300
+Processing by PlatosController#index as HTML
+  Rendering platos/index.html.erb within layouts/application
+  [1m[36mPlato Load (0.8ms)[0m  [1m[34mSELECT "platos".* FROM "platos"[0m
+  Rendered platos/index.html.erb within layouts/application (11.5ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (6.3ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 407ms (Views: 402.4ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/platos/1/orders" for 127.0.0.1 at 2017-12-20 01:22:51 -0300
+Processing by OrdersController#create as HTML
+  Parameters: {"authenticity_token"=>"JSALk36QZXESpcMNKAcrHI/4/oPATzuMQSW65QXDNDK+Z6wZ3u8U8dOgoIknZ+vH1e25spBqiiEAWF0+xE2L1A==", "plato_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPlato Load (0.5ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" WHERE "platos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."plato_id" = 1 AND "orders"."payed" = $1 AND "orders"."price" = $2 LIMIT $3[0m  [["payed", "f"], ["price", 34], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 13], ["plato_id", 1], ["price", 34], ["created_at", "2017-12-20 04:22:51.534147"], ["updated_at", "2017-12-20 04:22:51.534147"]]
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "orders" SET "quantity" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["quantity", 1], ["updated_at", "2017-12-20 04:22:51.556451"], ["id", 15]]
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/platos
+Completed 302 Found in 95ms (ActiveRecord: 29.3ms)
+
+
+Started GET "/platos" for 127.0.0.1 at 2017-12-20 01:22:51 -0300
+Processing by PlatosController#index as HTML
+  Rendering platos/index.html.erb within layouts/application
+  [1m[36mPlato Load (0.5ms)[0m  [1m[34mSELECT "platos".* FROM "platos"[0m
+  Rendered platos/index.html.erb within layouts/application (9.6ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (5.5ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 420ms (Views: 416.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/platos/2/orders" for 127.0.0.1 at 2017-12-20 01:22:56 -0300
+Processing by OrdersController#create as HTML
+  Parameters: {"authenticity_token"=>"FZjO8in9yTX03tq+ie8fsBtqIdNoifAPOzzWQ4dDe/SO32l4iYK4tTXbuTqGj99rQX9m4jisQaJ6QTGYRs3EEg==", "plato_id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPlato Load (0.8ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" WHERE "platos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."plato_id" = 2 AND "orders"."payed" = $1 AND "orders"."price" = $2 LIMIT $3[0m  [["payed", "f"], ["price", 11], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 13], ["plato_id", 2], ["price", 11], ["created_at", "2017-12-20 04:22:56.647230"], ["updated_at", "2017-12-20 04:22:56.647230"]]
+  [1m[35m (35.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "orders" SET "quantity" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["quantity", 1], ["updated_at", "2017-12-20 04:22:56.689881"], ["id", 16]]
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/platos
+Completed 302 Found in 67ms (ActiveRecord: 46.2ms)
+
+
+Started GET "/platos" for 127.0.0.1 at 2017-12-20 01:22:56 -0300
+Processing by PlatosController#index as HTML
+  Rendering platos/index.html.erb within layouts/application
+  [1m[36mPlato Load (0.7ms)[0m  [1m[34mSELECT "platos".* FROM "platos"[0m
+  Rendered platos/index.html.erb within layouts/application (10.5ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (6.9ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 440ms (Views: 434.7ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/platos/3/orders" for 127.0.0.1 at 2017-12-20 01:23:00 -0300
+Processing by OrdersController#create as HTML
+  Parameters: {"authenticity_token"=>"6meF4TejrqM0gAF/a/IwvMQqdWbP/ZkZlQX4/INRaQVxICJrl9zfI/WFYvtkkvBnnj8yV5/YKLTUeB8nQt/W4w==", "plato_id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPlato Load (0.7ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" WHERE "platos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."plato_id" = 3 AND "orders"."payed" = $1 AND "orders"."price" = $2 LIMIT $3[0m  [["payed", "f"], ["price", 19], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 13], ["plato_id", 3], ["price", 19], ["created_at", "2017-12-20 04:23:00.416997"], ["updated_at", "2017-12-20 04:23:00.416997"]]
+  [1m[35m (11.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "orders" SET "quantity" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["quantity", 1], ["updated_at", "2017-12-20 04:23:00.434482"], ["id", 17]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/platos
+Completed 302 Found in 40ms (ActiveRecord: 21.0ms)
+
+
+Started GET "/platos" for 127.0.0.1 at 2017-12-20 01:23:00 -0300
+Processing by PlatosController#index as HTML
+  Rendering platos/index.html.erb within layouts/application
+  [1m[36mPlato Load (0.5ms)[0m  [1m[34mSELECT "platos".* FROM "platos"[0m
+  Rendered platos/index.html.erb within layouts/application (10.7ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (5.6ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 398ms (Views: 394.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-12-20 01:23:02 -0300
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."payed" = $1[0m  [["payed", "f"]]
+  Rendering orders/index.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."payed" = $1[0m  [["payed", "f"]]
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."payed" = $1[0m  [["payed", "f"]]
+  [1m[36mPlato Load (0.7ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" WHERE "platos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlato Load (0.5ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" WHERE "platos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlato Load (0.7ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" WHERE "platos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered orders/index.html.erb within layouts/application (23.7ms)
+  Rendered layouts/_navbar.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (1.6ms)
+Completed 200 OK in 483ms (Views: 469.7ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/orders/address" for 127.0.0.1 at 2017-12-20 01:23:07 -0300
+Processing by OrdersController#address as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering orders/address.html.erb within layouts/application
+  Rendered orders/address.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navbar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 400ms (Views: 381.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/geocoder/findaddress?latitude=-33.376070399999996&longitude=-70.5457536&_=1513743780985" for 127.0.0.1 at 2017-12-20 01:23:15 -0300
+Processing by GeocoderController#findaddress as JS
+  Parameters: {"latitude"=>"-33.376070399999996", "longitude"=>"-70.5457536", "_"=>"1513743780985"}
+  Rendering geocoder/findaddress.js.erb
+  Rendered geocoder/findaddress.js.erb (1.0ms)
+Completed 200 OK in 499ms (Views: 22.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/billings/pre_pay?utf8=%E2%9C%93&user%5Bphone%5D=56988040802&user%5Baddress%5D=Av+San+Josemar%C3%ADa+Escriv%C3%A1+de+Balaguer+9459%2C+Vitacura%2C+Regi%C3%B3n+Metropolitana%2C+Chile&commit=Pagar" for 127.0.0.1 at 2017-12-20 01:23:17 -0300
+Processing by BillingsController#pre_pay as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"phone"=>"56988040802", "address"=>"Av San Josemaría Escrivá de Balaguer 9459, Vitacura, Región Metropolitana, Chile"}, "commit"=>"Pagar"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 13], ["payed", "f"]]
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 13], ["payed", "f"]]
+  [1m[36mPlato Load (0.4ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" WHERE "platos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlato Load (0.3ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" WHERE "platos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlato Load (0.6ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" WHERE "platos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+PayPal-Request-Id: b089082f-05e5-42ba-b5b0-57cb5f576ee9
+Request[post]: https://api.sandbox.paypal.com/v1/oauth2/token
+Request.body=grant_type=client_credentials	request.header={"User-Agent"=>"PayPalSDK/PayPal-Ruby-SDK 1.6.1 (paypal-sdk-core 1.6.1; ruby 2.4.0p0-x86_64-linux;OpenSSL 1.0.2g  1 Mar 2016)", "Content-Type"=>"application/x-www-form-urlencoded", "Authorization"=>"Basic QVlON3ZjLW9LWF9YNjlVejJVM3VfcUhrMTF3dzZkSmc2SzNTeVQ5NFlNb1lPVF9vZi1Id2VDcG4zZEpuN2lPVXk0aDFXU0UwSEtObXU0QWk6RUpqbGd3Y2ZWYVA0TmRFRGJrUGZxcnBfSjJnbi1vVTV4UEthWHZEREFMWnBwbGFpbjExXzBZcWhFbVV1MUkzaEJxMEdzRXc2QnNVS05uZG4=", "PayPal-Request-Id"=>"b089082f-05e5-42ba-b5b0-57cb5f576ee9"}
+Response[200]: OK, Duration: 4.657s
+Response.body={"scope":"https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.* https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks openid https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.*","nonce":"2017-12-20T04:23:22Zxg7HJ-k6gjfloA4hETjSyAJt_d6BNMA-7OZ9orWPP7M","access_token":"A21AAGhalxbmJwOWbPj8GrASZKdfsUAuWMZhvm5osD8tB3fet1t5ho2udDog_0Gzy1_Wa-ufMKTbxlMvIrrj-o5ePgG6cV_4A","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":32400}	Response.header={"date"=>["Wed, 20 Dec 2017 04:23:19 GMT"], "server"=>["Apache"], "paypal-debug-id"=>["481f4cc7974fd", "481f4cc7974fd"], "x-paypal-token-service"=>["IAAS"], "http_x_pp_az_locator"=>["sandbox.slc"], "set-cookie"=>["X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dapiplatformproxyserv%26TIME%3D3135584602%26HTTP_X_PP_AZ_LOCATOR%3Dsandbox.slc; Expires=Wed, 20 Dec 2017 04:53:22 GMT; domain=.paypal.com; path=/; Secure; HttpOnly", "X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT"], "vary"=>["Authorization"], "content-length"=>["550"], "connection"=>["close"], "content-type"=>["application/json"]}
+PayPal-Request-Id: b089082f-05e5-42ba-b5b0-57cb5f576ee9
+Request[post]: https://api.sandbox.paypal.com/v1/payments/payment
+Request.body={"intent":"sale","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"currency":"USD","total":"64"},"description":"Carro de compra","item_list":{"items":[{"sku":"15","name":"Tiramisù","quantity":"1","price":"34","currency":"USD"},{"sku":"16","name":"Vegetable Soup","quantity":"1","price":"11","currency":"USD"},{"sku":"17","name":"Caprese Salad","quantity":"1","price":"19","currency":"USD"}]}}],"redirect_urls":{"return_url":"http://localhost:3000/billings/execute","cancel_url":"http://localhost:3000/"}}	request.header={"X-PAYPAL-SANDBOX-EMAIL-ADDRESS"=>"Platform.sdk.seller@gmail.com", "Authorization"=>"Bearer A21AAGhalxbmJwOWbPj8GrASZKdfsUAuWMZhvm5osD8tB3fet1t5ho2udDog_0Gzy1_Wa-ufMKTbxlMvIrrj-o5ePgG6cV_4A", "Content-Type"=>"application/json", "User-Agent"=>"PayPalSDK/PayPal-Ruby-SDK 1.6.1 (paypal-sdk-core 1.6.1; ruby 2.4.0p0-x86_64-linux;OpenSSL 1.0.2g  1 Mar 2016)", "PayPal-Request-Id"=>"b089082f-05e5-42ba-b5b0-57cb5f576ee9"}
+Response[201]: Created, Duration: 1.125s
+Response.body={"id":"PAY-5JT31511KB553025KLI46LOY","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"64.00","currency":"USD"},"description":"Carro de compra","item_list":{"items":[{"name":"Tiramisù","sku":"15","price":"34.00","currency":"USD","quantity":1},{"name":"Vegetable Soup","sku":"16","price":"11.00","currency":"USD","quantity":1},{"name":"Caprese Salad","sku":"17","price":"19.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2017-12-20T04:23:23Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-5JT31511KB553025KLI46LOY","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-7SK02141YA728384T","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-5JT31511KB553025KLI46LOY/execute","rel":"execute","method":"POST"}]}	Response.header={"date"=>["Wed, 20 Dec 2017 04:23:23 GMT"], "server"=>["Apache"], "paypal-debug-id"=>["f6b51d0f936b5", "f6b51d0f936b5"], "content-language"=>["*"], "http_x_pp_az_locator"=>["sandbox.slc"], "set-cookie"=>["X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dapiplatformproxyserv%26TIME%3D3152361818%26HTTP_X_PP_AZ_LOCATOR%3Dsandbox.slc; Expires=Wed, 20 Dec 2017 04:53:23 GMT; domain=.paypal.com; path=/; Secure; HttpOnly", "X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT"], "vary"=>["Authorization"], "content-length"=>["936"], "connection"=>["close"], "content-type"=>["application/json"]}
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-7SK02141YA728384T
+Completed 302 Found in 6337ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/billings/execute?paymentId=PAY-5JT31511KB553025KLI46LOY&token=EC-7SK02141YA728384T&PayerID=AGD7PCLDNQQSJ" for 127.0.0.1 at 2017-12-20 01:24:26 -0300
+Processing by BillingsController#execute as HTML
+  Parameters: {"paymentId"=>"PAY-5JT31511KB553025KLI46LOY", "token"=>"EC-7SK02141YA728384T", "PayerID"=>"AGD7PCLDNQQSJ"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Request[get]: https://api.sandbox.paypal.com/v1/payments/payment/PAY-5JT31511KB553025KLI46LOY
+Request.body=null	request.header={"X-PAYPAL-SANDBOX-EMAIL-ADDRESS"=>"Platform.sdk.seller@gmail.com", "Authorization"=>"Bearer A21AAGhalxbmJwOWbPj8GrASZKdfsUAuWMZhvm5osD8tB3fet1t5ho2udDog_0Gzy1_Wa-ufMKTbxlMvIrrj-o5ePgG6cV_4A", "Content-Type"=>"application/json", "User-Agent"=>"PayPalSDK/PayPal-Ruby-SDK 1.6.1 (paypal-sdk-core 1.6.1; ruby 2.4.0p0-x86_64-linux;OpenSSL 1.0.2g  1 Mar 2016)"}
+Response[200]: OK, Duration: 1.002s
+Response.body={"id":"PAY-5JT31511KB553025KLI46LOY","intent":"sale","state":"created","cart":"7SK02141YA728384T","payer":{"payment_method":"paypal","status":"VERIFIED","payer_info":{"email":"comilon@gmail.com","first_name":"Gazzi","last_name":"Jacob","payer_id":"AGD7PCLDNQQSJ","shipping_address":{"recipient_name":"Gazzi Jacob","line1":"1 Main St","city":"San Jose","state":"CA","postal_code":"95131","country_code":"US"},"country_code":"US"}},"transactions":[{"amount":{"total":"64.00","currency":"USD"},"payee":{"merchant_id":"GQTTPHPRGNXS8","email":"restaurante@gmail.com"},"description":"Carro de compra","item_list":{"items":[{"name":"Tiramisù","sku":"15","price":"34.00","currency":"USD","quantity":1},{"name":"Vegetable Soup","sku":"16","price":"11.00","currency":"USD","quantity":1},{"name":"Caprese Salad","sku":"17","price":"19.00","currency":"USD","quantity":1}],"shipping_address":{"recipient_name":"Gazzi Jacob","line1":"1 Main St","city":"San Jose","state":"CA","postal_code":"95131","country_code":"US"}},"related_resources":[]}],"redirect_urls":{"return_url":"http://localhost:3000/billings/execute?paymentId=PAY-5JT31511KB553025KLI46LOY","cancel_url":"http://localhost:3000/"},"create_time":"2017-12-20T04:23:23Z","update_time":"2017-12-20T04:24:27Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-5JT31511KB553025KLI46LOY","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-5JT31511KB553025KLI46LOY/execute","rel":"execute","method":"POST"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-7SK02141YA728384T","rel":"approval_url","method":"REDIRECT"}]}	Response.header={"date"=>["Wed, 20 Dec 2017 04:24:27 GMT"], "server"=>["Apache"], "paypal-debug-id"=>["4aa434f83d4bf", "4aa434f83d4bf"], "content-language"=>["*"], "http_x_pp_az_locator"=>["sandbox.slc"], "set-cookie"=>["X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dapiplatformproxyserv%26TIME%3D4226103642%26HTTP_X_PP_AZ_LOCATOR%3Dsandbox.slc; Expires=Wed, 20 Dec 2017 04:54:27 GMT; domain=.paypal.com; path=/; Secure; HttpOnly", "X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT"], "vary"=>["Authorization"], "content-length"=>["1662"], "connection"=>["close"], "content-type"=>["application/json"]}
+PayPal-Request-Id: 6686e9a7-211a-49a8-874e-28b071ace91a
+Request[post]: https://api.sandbox.paypal.com/v1/payments/payment/PAY-5JT31511KB553025KLI46LOY/execute
+Request.body={"payer_id":"AGD7PCLDNQQSJ"}	request.header={"X-PAYPAL-SANDBOX-EMAIL-ADDRESS"=>"Platform.sdk.seller@gmail.com", "Authorization"=>"Bearer A21AAGhalxbmJwOWbPj8GrASZKdfsUAuWMZhvm5osD8tB3fet1t5ho2udDog_0Gzy1_Wa-ufMKTbxlMvIrrj-o5ePgG6cV_4A", "Content-Type"=>"application/json", "User-Agent"=>"PayPalSDK/PayPal-Ruby-SDK 1.6.1 (paypal-sdk-core 1.6.1; ruby 2.4.0p0-x86_64-linux;OpenSSL 1.0.2g  1 Mar 2016)", "PayPal-Request-Id"=>"6686e9a7-211a-49a8-874e-28b071ace91a"}
+Response[200]: OK, Duration: 3.503s
+Response.body={"id":"PAY-5JT31511KB553025KLI46LOY","intent":"sale","state":"approved","cart":"7SK02141YA728384T","payer":{"payment_method":"paypal","status":"VERIFIED","payer_info":{"email":"comilon@gmail.com","first_name":"Gazzi","last_name":"Jacob","payer_id":"AGD7PCLDNQQSJ","shipping_address":{"recipient_name":"Gazzi Jacob","line1":"1 Main St","city":"San Jose","state":"CA","postal_code":"95131","country_code":"US"},"country_code":"US"}},"transactions":[{"amount":{"total":"64.00","currency":"USD","details":{}},"payee":{"merchant_id":"GQTTPHPRGNXS8","email":"restaurante@gmail.com"},"description":"Carro de compra","item_list":{"items":[{"name":"Tiramisù","sku":"15","price":"34.00","currency":"USD","quantity":1},{"name":"Vegetable Soup","sku":"16","price":"11.00","currency":"USD","quantity":1},{"name":"Caprese Salad","sku":"17","price":"19.00","currency":"USD","quantity":1}],"shipping_address":{"recipient_name":"Gazzi Jacob","line1":"1 Main St","city":"San Jose","state":"CA","postal_code":"95131","country_code":"US"}},"related_resources":[{"sale":{"id":"54H83071K3825090X","state":"completed","amount":{"total":"64.00","currency":"USD","details":{"subtotal":"64.00"}},"payment_mode":"INSTANT_TRANSFER","protection_eligibility":"ELIGIBLE","protection_eligibility_type":"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE","transaction_fee":{"value":"2.16","currency":"USD"},"parent_payment":"PAY-5JT31511KB553025KLI46LOY","create_time":"2017-12-20T04:24:30Z","update_time":"2017-12-20T04:24:30Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/sale/54H83071K3825090X","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/sale/54H83071K3825090X/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-5JT31511KB553025KLI46LOY","rel":"parent_payment","method":"GET"}]}}]}],"create_time":"2017-12-20T04:24:30Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-5JT31511KB553025KLI46LOY","rel":"self","method":"GET"}]}	Response.header={"date"=>["Wed, 20 Dec 2017 04:24:28 GMT"], "server"=>["Apache"], "paypal-debug-id"=>["ce2fd6b7842a1", "ce2fd6b7842a1"], "content-language"=>["*"], "http_x_pp_az_locator"=>["sandbox.slc"], "set-cookie"=>["X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dapiplatformproxyserv%26TIME%3D4259658074%26HTTP_X_PP_AZ_LOCATOR%3Dsandbox.slc; Expires=Wed, 20 Dec 2017 04:54:30 GMT; domain=.paypal.com; path=/; Secure; HttpOnly", "X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT"], "vary"=>["Authorization"], "content-length"=>["2034"], "connection"=>["close"], "content-type"=>["application/json"]}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (9.6ms)[0m  [1m[32mINSERT INTO "billings" ("code", "payment_method", "amount", "currency", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["code", "PAY-5JT31511KB553025KLI46LOY"], ["payment_method", "paypal"], ["amount", "64.0"], ["currency", "USD"], ["user_id", 13], ["created_at", "2017-12-20 04:24:31.058354"], ["updated_at", "2017-12-20 04:24:31.058354"]]
+  [1m[35m (18.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (7.9ms)[0m  [1m[33mUPDATE "orders" SET "payed" = 't', "billing_id" = 1 WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 13], ["payed", "f"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 4658ms (ActiveRecord: 46.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-20 01:24:31 -0300
+Processing by PlatosController#landing as HTML
+  Rendering platos/landing.html.erb within layouts/application
+  Rendered platos/landing.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (13.0ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 391ms (Views: 387.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-12-20 01:24:41 -0300
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2017-12-20 01:24:41 -0300
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/devise/shared/_links.erb (4.6ms)
+  Rendered /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (507.4ms)
+Completed 200 OK in 1426ms (Views: 1382.3ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2017-12-20 01:24:47 -0300
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aOXQNwLn36JG9DOJmWm0C7BF+C4F3VCFi9nCaT0sCJHzone9opiuIofxUA2WCXTQ6lC/H1X44SjKpCWy/KK3dw==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (1.9ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "admin_users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "admin_users"."id" = $7[0m  [["current_sign_in_at", "2017-12-20 04:24:48.161991"], ["last_sign_in_at", "2017-12-20 04:24:48.161991"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2017-12-20 04:24:48.163710"], ["id", 1]]
+  [1m[35m (10.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 376ms (ActiveRecord: 13.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-12-20 01:24:48 -0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.9ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (orders.checked_out_at IS NOT NULL) ORDER BY id desc LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "admin_users"[0m
+  Rendered /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb (230.8ms)
+Completed 200 OK in 278ms (Views: 251.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/admin/orders" for 127.0.0.1 at 2017-12-20 01:24:53 -0300
+Processing by Admin::OrdersController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE (orders.checked_out_at IS NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE (orders.checked_out_at IS NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 FROM "orders" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 FROM "orders" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 FROM "orders" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mOrder Load (1.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (518.6ms)
+Completed 200 OK in 557ms (Views: 540.5ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/admin/orders?scope=in_progress" for 127.0.0.1 at 2017-12-20 01:24:59 -0300
+Processing by Admin::OrdersController#index as HTML
+  Parameters: {"scope"=>"in_progress"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE (orders.checked_out_at IS NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE (orders.checked_out_at IS NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 FROM "orders" WHERE (orders.checked_out_at IS NULL) LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 FROM "orders" WHERE (orders.checked_out_at IS NULL) LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE (orders.checked_out_at IS NULL)[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 FROM "orders" WHERE (orders.checked_out_at IS NULL) LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mOrder Load (1.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (orders.checked_out_at IS NULL) ORDER BY "orders"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (372.2ms)
+Completed 200 OK in 387ms (Views: 370.9ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-20 02:23:22 -0300
+Processing by PlatosController#landing as HTML
+  Rendering platos/landing.html.erb within layouts/application
+  Rendered platos/landing.html.erb within layouts/application (52.1ms)
+  [1m[36mUser Load (92.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (206.6ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 3960ms (Views: 3786.5ms | ActiveRecord: 92.6ms)
+
+
+Started GET "/platos" for 127.0.0.1 at 2017-12-20 02:23:33 -0300
+Processing by PlatosController#index as HTML
+  Rendering platos/index.html.erb within layouts/application
+  [1m[36mPlato Load (0.7ms)[0m  [1m[34mSELECT "platos".* FROM "platos"[0m
+  Rendered platos/index.html.erb within layouts/application (9.8ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (6.2ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 400ms (Views: 377.6ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/platos/2/orders" for 127.0.0.1 at 2017-12-20 02:23:37 -0300
+Processing by OrdersController#create as HTML
+  Parameters: {"authenticity_token"=>"hqUYTQj4HJ7m9zaRWGuFl4aIIkvXROcf7HhbE8HVZ9gnWdCO93uALbjcyHQwWtUnucToIkb4WaccG7BkEihU6A==", "plato_id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPlato Load (0.5ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" WHERE "platos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."plato_id" = 2 AND "orders"."payed" = $1 AND "orders"."price" = $2 LIMIT $3[0m  [["payed", "f"], ["price", 11], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (17.8ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "plato_id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 13], ["plato_id", 2], ["price", 11], ["created_at", "2017-12-20 05:23:37.150185"], ["updated_at", "2017-12-20 05:23:37.150185"]]
+  [1m[35m (107.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "orders" SET "quantity" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["quantity", 1], ["updated_at", "2017-12-20 05:23:37.280792"], ["id", 18]]
+  [1m[35m (16.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/platos
+Completed 302 Found in 210ms (ActiveRecord: 145.3ms)
+
+
+Started GET "/platos" for 127.0.0.1 at 2017-12-20 02:23:37 -0300
+Processing by PlatosController#index as HTML
+  Rendering platos/index.html.erb within layouts/application
+  [1m[36mPlato Load (0.6ms)[0m  [1m[34mSELECT "platos".* FROM "platos"[0m
+  Rendered platos/index.html.erb within layouts/application (9.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (5.3ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 410ms (Views: 406.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-12-20 02:23:43 -0300
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."payed" = $1[0m  [["payed", "f"]]
+  Rendering orders/index.html.erb within layouts/application
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."payed" = $1[0m  [["payed", "f"]]
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 13 AND "orders"."payed" = $1[0m  [["payed", "f"]]
+  [1m[36mPlato Load (0.8ms)[0m  [1m[34mSELECT  "platos".* FROM "platos" WHERE "platos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered orders/index.html.erb within layouts/application (10.8ms)
+  Rendered layouts/_navbar.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 424ms (Views: 387.4ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/orders/address" for 127.0.0.1 at 2017-12-20 02:23:45 -0300
+Processing by OrdersController#address as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering orders/address.html.erb within layouts/application
+  Rendered orders/address.html.erb within layouts/application (21.6ms)
+  Rendered layouts/_navbar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 412ms (Views: 396.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/orders/address" for 127.0.0.1 at 2017-12-20 02:24:55 -0300
+Processing by OrdersController#address as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering orders/address.html.erb within layouts/application
+  Rendered orders/address.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navbar.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 381ms (Views: 374.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/geocoder/findaddress?latitude=-33.375997&longitude=-70.5458725&_=1513747417937" for 127.0.0.1 at 2017-12-20 02:25:14 -0300
+Processing by GeocoderController#findaddress as JS
+  Parameters: {"latitude"=>"-33.375997", "longitude"=>"-70.5458725", "_"=>"1513747417937"}
+  Rendering geocoder/findaddress.js.erb
+  Rendered geocoder/findaddress.js.erb (0.9ms)
+Completed 200 OK in 654ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/orders/17" for 127.0.0.1 at 2017-12-20 02:43:41 -0300
+Processing by Admin::OrdersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mAdminUser Load (43.1ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  Rendered /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (48.3ms)
+Completed 401 Unauthorized in 386ms (ActiveRecord: 44.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `total_price' for #<Order:0x007f2c721b0850>):
+    1: insert_tag renderer_for(:show)
+  
+app/models/order.rb:43:in `display_name'
+Started GET "/admin/orders?scope=in_progress" for 127.0.0.1 at 2017-12-20 02:44:18 -0300
+Processing by Admin::OrdersController#index as HTML
+  Parameters: {"scope"=>"in_progress"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE (orders.checked_out_at IS NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE (orders.checked_out_at IS NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 FROM "orders" WHERE (orders.checked_out_at IS NULL) LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 FROM "orders" WHERE (orders.checked_out_at IS NULL) LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE (orders.checked_out_at IS NULL)[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 FROM "orders" WHERE (orders.checked_out_at IS NULL) LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mOrder Load (1.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (orders.checked_out_at IS NULL) ORDER BY "orders"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered /home/usuario/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (798.2ms)
+Completed 200 OK in 823ms (Views: 808.7ms | ActiveRecord: 8.7ms)
+
+
